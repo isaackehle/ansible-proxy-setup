@@ -31,6 +31,7 @@
       dest: /etc/environment
       block: "{{ b1 | join('\n') }}"
       insertafter: EOF
+      marker: "# {mark} ANSIBLE MANAGED BLOCK - PROXY"
     become: true
 
   #
@@ -53,6 +54,7 @@
       dest: /etc/profile.d/proxy.sh
       block: "{{ b2 | join('\n') }}"
       insertafter: EOF
+      marker: "# {mark} ANSIBLE MANAGED BLOCK - PROXY"
     become: true
 
   #
@@ -72,6 +74,7 @@
       dest: /etc/apt/apt.conf.d/80proxy
       block: "{{ b3 | join('\n') }}"
       insertafter: EOF
+      marker: "# {mark} ANSIBLE MANAGED BLOCK - PROXY"
     become: true
 
   #

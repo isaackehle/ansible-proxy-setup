@@ -28,3 +28,4 @@ Paul Kehle
 
 * http://digitaldrummerj.me/proxy-configurations/
 * http://askubuntu.com/questions/664777/systemwide-proxy-settings-in-ubuntu
+* http://www.linuxsecrets.com/blog/6managing-linux-systems/2015/05/26/1490-manually-change-ubuntu-proxy-settings-from-cli-command-line-terminal
