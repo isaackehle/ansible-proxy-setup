@@ -1,0 +1,88 @@
+---
+
+  - set_fact:
+      b1: []
+      b2: []
+      b3: []
+
+  #
+  # /etc/environment
+  #
+  - name: Create the environment block
+    set_fact:
+      b1: "{{ b1 }} + ['{{ item }}=http://{{ proxy_addr }}:{{ proxy_port }}/']"
+    with_items:
+      - http_proxy
+      - https_proxy
+      - ftp_proxy
+      - HTTP_PROXY
+      - HTTPS_PROXY
+      - FTP_PROXY
+
+  - name: Append to the environment block
+    set_fact:
+      b1: "{{ b1 }} + ['{{ item }}=\"localhost,127.0.0.1,localaddress,.localdomain.com\"']"
+    with_items:
+      - no_proxy
+      - NO_PROXY
+
+  - name: Update /etc/environment
+    blockinfile:
+      dest: /etc/environment
+      block: "{{ b1 | join('\n') }}"
+      insertafter: EOF
+    become: true
+
+  #
+  # /etc/profile.d/proxy.sh
+  #
+
+  - name: Create the profile block
+    set_fact:
+      b2: "{{ b2 }} + ['export {{ item.opt }}={{ item.prot }}://{{ proxy_addr }}:{{ proxy_port }}/']"
+    with_items:
+      - {opt: http_proxy, prot: http}
+      - {opt: https_proxy, prot: http}
+      - {opt: ftp_proxy, prot: http}
+      - {opt: socks_proxy,prot: socks}
+      - {opt: npm_config_proxy, prot: http}
+      - {opt: npm_config_https_proxy, prot: http}
+
+  - name: Update /etc/profile.d/proxy.sh
+    blockinfile:
+      dest: /etc/profile.d/proxy.sh
+      block: "{{ b2 | join('\n') }}"
+      insertafter: EOF
+    become: true
+
+  #
+  # /etc/apt/apt.conf.d/80proxy
+  #
+
+  - name: Create the apt.conf block
+    set_fact:
+      b3: "{{ b3 }} + ['{{ item }};']"
+    with_items:
+      - Acquire::http::proxy "http://{{ proxy_addr }}:{{ proxy_port }}/"
+      - Acquire::ftp::proxy "ftp://{{ proxy_addr }}:{{ proxy_port }}/"
+      - Acquire::https::proxy "https://{{ proxy_addr }}:{{ proxy_port }}/"
+
+  - name: Update /etc/apt/apt.conf.d/80proxy
+    blockinfile:
+      dest: /etc/apt/apt.conf.d/80proxy
+      block: "{{ b3 | join('\n') }}"
+      insertafter: EOF
+    become: true
+
+  #
+  # git
+  #
+
+  - name: Add proxy to git
+    shell: git config --global {{ item.opt }} {{ item.prot }}://{{ proxy_addr }}:{{ proxy_port }}
+    with_items:
+      - { opt: http.proxy, prot: http }
+      - { opt: https.proxy, prot: https }
+
+  - name: Set git to https
+    shell: git config --global url."https://github.com/".insteadOf git://github.com/

@@ -1,2 +1,30 @@
-# ansible-proxy-setup
-Enable a Proxy Server for a VM
+# Ansible: proxy-setup
+
+Configure packages to use a Proxy Server
+
+Available on Ansible Galaxy: [pgkehle.proxy-setup](https://galaxy.ansible.com/pgkehle/proxy-setup)
+
+
+# Examples
+
+```YAML
+
+  - hosts: all
+  
+    roles:
+      - pgkehle.proxy-setup
+```
+
+## License
+
+MIT
+
+## Author Information
+
+Paul Kehle  
+@pgkehle ([twitter](https://twitter.com/pgkehle), [github](https://github.com/pgkehle), [linkedin](https://www.linkedin.com/in/pgkehle))
+
+### References
+
+* http://digitaldrummerj.me/proxy-configurations/
+* http://askubuntu.com/questions/664777/systemwide-proxy-settings-in-ubuntu
