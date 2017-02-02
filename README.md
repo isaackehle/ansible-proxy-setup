@@ -1,6 +1,6 @@
 # Ansible: proxy-setup
 
-Configure packages to use a Proxy Server
+Configure a system to use a Proxy Server
 
 Available on Ansible Galaxy: [pgkehle.proxy-setup](https://galaxy.ansible.com/pgkehle/proxy-setup)
 
