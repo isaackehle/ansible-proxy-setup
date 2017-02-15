@@ -10,7 +10,7 @@
   #
   - name: Create the environment block
     set_fact:
-      b1: "{{ b1 }} + ['{{ item }}=http://{{ proxy_addr }}:{{ proxy_port }}/']"
+      b1: "{{ b1 }} + ['{{ item }}=http://{{ proxy.addr }}:{{ proxy.port }}/']"
     with_items:
       - http_proxy
       - https_proxy
@@ -40,7 +40,7 @@
 
   - name: Create the profile block
     set_fact:
-      b2: "{{ b2 }} + ['export {{ item.opt }}={{ item.prot }}://{{ proxy_addr }}:{{ proxy_port }}/']"
+      b2: "{{ b2 }} + ['export {{ item.opt }}={{ item.prot }}://{{ proxy.addr }}:{{ proxy.port }}/']"
     with_items:
       - {opt: http_proxy, prot: http}
       - {opt: https_proxy, prot: http}
@@ -65,9 +65,9 @@
     set_fact:
       b3: "{{ b3 }} + ['{{ item }};']"
     with_items:
-      - Acquire::http::proxy "http://{{ proxy_addr }}:{{ proxy_port }}/"
-      - Acquire::ftp::proxy "ftp://{{ proxy_addr }}:{{ proxy_port }}/"
-      - Acquire::https::proxy "https://{{ proxy_addr }}:{{ proxy_port }}/"
+      - Acquire::http::proxy "http://{{ proxy.addr }}:{{ proxy.port }}/"
+      - Acquire::ftp::proxy "ftp://{{ proxy.addr }}:{{ proxy.port }}/"
+      - Acquire::https::proxy "https://{{ proxy.addr }}:{{ proxy.port }}/"
 
   - name: Update /etc/apt/apt.conf.d/80proxy
     blockinfile:
@@ -82,7 +82,7 @@
   #
 
   - name: Add proxy to git
-    shell: git config --global {{ item.opt }} {{ item.prot }}://{{ proxy_addr }}:{{ proxy_port }}
+    shell: git config --global {{ item.opt }} {{ item.prot }}://{{ proxy.addr }}:{{ proxy.port }}
     with_items:
       - { opt: http.proxy, prot: http }
       - { opt: https.proxy, prot: https }

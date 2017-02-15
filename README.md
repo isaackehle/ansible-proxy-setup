@@ -11,6 +11,11 @@ Available on Ansible Galaxy: [pgkehle.proxy-setup](https://galaxy.ansible.com/pg
 
   - hosts: all
   
+    vars:
+      proxy:
+        addr:   my.fqdn
+        port:   3128
+  
     roles:
       - pgkehle.proxy-setup
 ```

@@ -1,2 +1,5 @@
 ---
 
+proxy:
+  address:  ""
+  port:     3128
