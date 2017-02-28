@@ -38,6 +38,15 @@
   # /etc/profile.d/proxy.sh
   #
 
+  - name: Ensure /etc/profile.d/proxy.sh exists
+    file:
+      path: /etc/profile.d/proxy.sh
+      owner: root
+      group: root
+      mode: 0644
+      state: touch
+    become: true
+
   - name: Create the profile block
     set_fact:
       b2: "{{ b2 }} + ['export {{ item.opt }}={{ item.prot }}://{{ proxy.addr }}:{{ proxy.port }}/']"
