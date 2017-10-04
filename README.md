@@ -1,4 +1,4 @@
-# Ansible: proxy-setup
+# Ansible Role - proxy-setup
 
 Configure a system to use a Proxy Server
 
@@ -28,6 +28,12 @@ MIT
 
 Paul Kehle  
 @pgkehle ([twitter](https://twitter.com/pgkehle), [github](https://github.com/pgkehle), [linkedin](https://www.linkedin.com/in/pgkehle))
+
+## For local development testing
+
+```bash
+rsync -av --delete ~/code/ansible-proxy-setup/* ~/.ansible/roles/pgkehle.proxy-setup
+```
 
 ### References
 
