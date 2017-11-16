@@ -98,3 +98,13 @@
 
   - name: Set git to https
     shell: git config --global url."https://github.com/".insteadOf git://github.com/
+
+  #
+  # yarn
+  #
+
+  - name: Add proxy to yarn
+    shell: yarn config set {{ item.opt }} http://{{ proxy.addr }}:{{ proxy.port }}
+    with_items:
+      - { opt: proxy }
+      - { opt: https-proxy }
