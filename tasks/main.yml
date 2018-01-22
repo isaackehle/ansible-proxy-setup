@@ -84,6 +84,7 @@
       block: "{{ b3 | join('\n') }}"
       insertafter: EOF
       marker: "# {mark} ANSIBLE MANAGED BLOCK - PROXY"
+      create: true
     become: true
 
   #
