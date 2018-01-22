@@ -1,6 +1,6 @@
 {
   "name": "ansible-proxy-setup",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Configure a system to use a Proxy Server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
