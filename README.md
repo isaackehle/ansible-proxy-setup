@@ -29,12 +29,6 @@ MIT
 Paul Kehle  
 @pgkehle ([twitter](https://twitter.com/pgkehle), [github](https://github.com/pgkehle), [linkedin](https://www.linkedin.com/in/pgkehle))
 
-## For local development testing
-
-```bash
-rsync -av --delete ~/code/ansible-proxy-setup/* ~/.ansible/roles/pgkehle.proxy-setup
-```
-
 ### References
 
 * http://digitaldrummerj.me/proxy-configurations/
