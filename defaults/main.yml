@@ -1,5 +1,4 @@
 ---
-
 proxy:
-  address:  ""
-  port:     3128
+  address: ""
+  port: 3128
