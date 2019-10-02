@@ -4,20 +4,25 @@ Configure a system to use a Proxy Server
 
 Available on Ansible Galaxy: [pgkehle.proxy-setup](https://galaxy.ansible.com/pgkehle/proxy-setup)
 
-
-# Examples
+## Examples
 
 ```YAML
 
   - hosts: all
-  
     vars:
       proxy:
-        addr:   my.fqdn
-        port:   3128
-  
+        addr: my.fqdn
+        port: 3128
+
     roles:
       - pgkehle.proxy-setup
+```
+
+## Linting
+
+```bash
+yamllint -c yamllint.yaml .
+ansible-lint .
 ```
 
 ## License
@@ -31,6 +36,6 @@ Paul Kehle
 
 ### References
 
-* http://digitaldrummerj.me/proxy-configurations/
-* http://askubuntu.com/questions/664777/systemwide-proxy-settings-in-ubuntu
-* http://www.linuxsecrets.com/blog/6managing-linux-systems/2015/05/26/1490-manually-change-ubuntu-proxy-settings-from-cli-command-line-terminal
+- [From Digital Drummer](http://digitaldrummerj.me/proxy-configurations/)
+- [From Ask Ubuntu](http://askubuntu.com/questions/664777/systemwide-proxy-settings-in-ubuntu)
+- [From Linux Secrets](http://www.linuxsecrets.com/blog/6managing-linux-systems/2015/05/26/1490-manually-change-ubuntu-proxy-settings-from-cli-command-line-terminal)
