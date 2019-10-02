@@ -123,4 +123,3 @@
     - { opt: proxy }
     - { opt: https-proxy }
   when: yarn_check.stdout.find('yarn') != -1
-
