@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Paul Kehle <twitter.com/pgkehle>
+  author: Isaac Kehle <twitter.com/isaackehle>
   description: Configure a system to use a Proxy Server
-  company: pgkehle
+  company: isaackehle
   license: MIT
   min_ansible_version: 2.4
   platforms:

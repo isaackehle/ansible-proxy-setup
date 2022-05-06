@@ -2,7 +2,7 @@
 
 Configure a system to use a Proxy Server
 
-Available on Ansible Galaxy: [pgkehle.proxy-setup](https://galaxy.ansible.com/pgkehle/proxy-setup)
+Available on Ansible Galaxy: [isaackehle.proxy-setup](https://galaxy.ansible.com/isaackehle/proxy-setup)
 
 ## Examples
 
@@ -15,7 +15,7 @@ Available on Ansible Galaxy: [pgkehle.proxy-setup](https://galaxy.ansible.com/pg
         port: 3128
 
     roles:
-      - pgkehle.proxy-setup
+      - isaackehle.proxy-setup
 ```
 
 ## Linting
@@ -31,8 +31,8 @@ MIT
 
 ## Author Information
 
-Paul Kehle  
-@pgkehle ([twitter](https://twitter.com/pgkehle), [github](https://github.com/pgkehle), [linkedin](https://www.linkedin.com/in/pgkehle))
+Isaac Kehle
+@isaackehle ([twitter](https://twitter.com/isaackehle), [github](https://github.com/isaackehle), [linkedin](https://www.linkedin.com/in/isaackehle))
 
 ### References
 
